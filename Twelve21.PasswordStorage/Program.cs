@@ -62,9 +62,9 @@ namespace Twelve21.PasswordStorage
                         MaximumTime = ReadOption(timeOption, () => 1000),
                         DegreeOfParallelism = ReadOption(parallelismOption, () => SystemManagement.GetTotalCpuCores() * 2),
                         MinimumIterations = ReadOption(iterationsOption, () => 2),
-                        Mode = ReadOption(modeOption, () => Argon2Mode.Argon2id),
+                        Mode = ReadOption(modeOption, () => Argon2Mode.Argon2i),
                         SaltAndPasswordLength = ReadOption(saltLengthOption, () => 16),
-                        HashLength = ReadOption(hashLengthOption, () => 16)
+                        HashLength = ReadOption(hashLengthOption, () => 32)
                     };
 
                     var calibrator = new Argon2Calibrator(factory, logger, input);

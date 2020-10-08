@@ -6,6 +6,8 @@ namespace Twelve21.PasswordStorage.Argon
     {
         public void WriteBeginCalibrationTest(Argon2Parameters parameters)
         {
+           
+            Write($"C = {DateTime.Now.ToString("HH:mm:ss.ffffff")}, ");
             Write($"M = {parameters.MemoryUsage / 1024,4} MB, ");
             Write($"T = {parameters.Iterations,4}, ");
             Write($"d = {parameters.DegreeOfParallelism}, ");
