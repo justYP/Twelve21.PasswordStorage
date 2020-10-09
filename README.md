@@ -18,6 +18,7 @@ Run the Argon2 Calibration image.
 
 ```
 docker run argon2calibrator
+```
 
 The application will run and show you the best results, similar to:
 
@@ -34,14 +35,10 @@ M =    2 MB, T =  271, d = 8, Time = 0.973 s
 M =    1 MB, T =  639, d = 8, Time = 0.991 s
 ```
 
+
 For detailed help and options, add the --help option to the command line:
-
 ```
-> docker run a2c --help
-
-
-Usage: a2c [options]
-
+docker run a2c --help
 Options:
   -?|-h|--help      Show help information
   -t|--time         The maximum time in milliseconds it should take to calculate the password hash. Defaults to 1000.
