@@ -1,6 +1,6 @@
 # Twelve21.PasswordStorage
 
-This library is meant to provide utility functions for password storage. It is written in C# against .NET Core 2.2.
+Written in C# against .NET Core 2.2.
 
 It currently only supports Argon2 calibration features. You can use this library to determine which parameters to pass to one of the Argon2 hashing functions.
 
@@ -8,24 +8,16 @@ This application is built upon the research in [this blog post](https://www.twel
 
 ## Documentation
 
-First, clone the git repository.
+Build the image.
 
 ```
-git clone https://https://github.com/bburman/Twelve21.PasswordStorage.git
+docker build . --tag argon2calibrator
 ```
 
-Secondly, enter the directory and build the solution.
+Run the Argon2 Calibration image.
 
 ```
-dotnet build
-```
-
-Next, enter the Twelve21.PasswordStorage subdirectory and run the Argon2 Calibration function.
-
-```
-cd ./Twelve21.PasswordStorage
-dotnet run a2c
-```
+docker run argon2calibrator
 
 The application will run and show you the best results, similar to:
 
@@ -45,16 +37,17 @@ M =    1 MB, T =  639, d = 8, Time = 0.991 s
 For detailed help and options, add the --help option to the command line:
 
 ```
-> dotnet run a2c -- --help
+> docker run a2c --help
 
 
-Usage:  a2c [options]
+Usage: a2c [options]
 
 Options:
   -?|-h|--help      Show help information
   -t|--time         The maximum time in milliseconds it should take to calculate the password hash. Defaults to 1000.
   -p|--parallelism  The degree of parallelism. Defaults to twice the number of CPU cores.
   -i|--iterations   The minimum number of iterations. Defaults to 2.
+  -m|--mode         The mode of operation. The default is Argon2id.
 ```
 
 ## License

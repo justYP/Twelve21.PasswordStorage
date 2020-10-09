@@ -62,7 +62,7 @@ namespace Twelve21.PasswordStorage
                         MaximumTime = ReadOption(timeOption, () => 1000),
                         DegreeOfParallelism = ReadOption(parallelismOption, () => SystemManagement.GetTotalCpuCores() * 2),
                         MinimumIterations = ReadOption(iterationsOption, () => 2),
-                        Mode = ReadOption(modeOption, () => Argon2Mode.Argon2i),
+                        Mode = ReadOption(modeOption, () => Argon2Mode.Argon2id),
                         SaltAndPasswordLength = ReadOption(saltLengthOption, () => 16),
                         HashLength = ReadOption(hashLengthOption, () => 32)
                     };
